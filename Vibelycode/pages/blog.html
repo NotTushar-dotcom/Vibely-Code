@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VibelyCode - Latest coding tutorials and articles">
+    <title>Blog | VibelyCode</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7E57C2',
+                        secondary: '#5E35B1',
+                        accent: '#9575CD',
+                        dark: '#231942',
+                        light: '#F8F7FF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-dark/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../pages/index.html" class="flex items-center gap-2">
+                <span class="text-2xl font-bold text-primary font-['Poppins'] tracking-tight flex items-center">
+                    <img src="../images/WhatsApp Image 2025-05-26 at 22.36.18_29367934.jpg" 
+                         alt="VibelyCode Logo" 
+                         class="h-8 w-8 mr-2 rounded-full object-cover border-2 border-accent">
+                    Vibely<span class="text-accent">Code</span>
+                </span>
+            </a>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="../pages/index.html" class="hover:text-primary transition-colors">Home</a>
+                <a href="../pages/blog.html" class="text-primary font-medium transition-colors">Blog</a>
+                <a href="../pages/about.html" class="hover:text-primary transition-colors">About</a>
+                <a href="../pages/contact.html" class="hover:text-primary transition-colors">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button id="search-toggle" class="hover:text-primary transition-colors">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="theme-toggle" class="hover:text-primary transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                <button id="mobile-menu-toggle" class="md:hidden hover:text-primary transition-colors">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-dark border-t dark:border-gray-700">
+            <div class="container mx-auto px-4 py-3">
+                <a href="../pages/index.html" class="block py-2 hover:text-primary transition-colors">Home</a>
+                <a href="/pages/blog.html" class="block py-2 text-primary font-medium transition-colors">Blog</a>
+                <a href="/pages/about.html" class="block py-2 hover:text-primary transition-colors">About</a>
+                <a href="/pages/contact.html" class="block py-2 hover:text-primary transition-colors">Contact</a>
+            </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div id="search-bar" class="hidden bg-white dark:bg-dark border-t dark:border-gray-700">
+            <div class="container mx-auto px-4 py-3">
+                <div class="relative">
+                    <input type="text" placeholder="Search blog posts..." class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 focus:outline-none">
+                    <button class="absolute right-3 top-2 text-gray-500 hover:text-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="py-16 bg-gradient-to-r from-purple-50 to-indigo-100 dark:from-dark dark:to-secondary/30">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our <span class="text-primary">Blog</span></h1>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                Latest coding tutorials, tips, and insights from the VibelyCode team
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <!-- Category Filter -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="px-4 py-2 rounded-full bg-primary text-white text-sm font-medium">All Posts</button>
+                <button class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium transition-colors">HTML & CSS</button>
+                <button class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium transition-colors">JavaScript</button>
+                <button class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium transition-colors">Frameworks</button>
+                <button class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-sm font-medium transition-colors">Tools</button>
+            </div>
+
+            <!-- Blog Posts Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="relative">
+                        <span class="absolute top-4 left-4 bg-primary text-white text-xs px-3 py-1 rounded-full">HTML & CSS</span>
+                        <img src="../images/post1.jpg" alt="CSS Grid Layout" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                            <span>May 28, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Mastering CSS Grid Layout</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Learn how to create complex responsive layouts with CSS Grid, the powerful layout system that's changing the way we design for the web.</p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center">
+                            Read More
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="relative">
+                        <span class="absolute top-4 left-4 bg-blue-500 text-white text-xs px-3 py-1 rounded-full">JavaScript</span>
+                        <img src="../images/post2.jpg" alt="JavaScript ES6+ Features" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                            <span>May 20, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>10 min read</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Modern JavaScript: ES6+ Features You Should Know</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Explore the most useful ES6+ features that will make your JavaScript code cleaner, more readable, and more efficient.</p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center">
+                            Read More
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-colors">
+                    <div class="relative">
+                        <span class="absolute top-4 left-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full">Frameworks</span>
+                        <img src="../images/post3.jpg" alt="React Hooks" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                            <span>May 12, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>12 min read</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Getting Started with React Hooks</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">A comprehensive guide to React Hooks and how they can simplify your functional components and state management.</p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center">
+                            Read More
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-colors">
+                    <div class="relative">
+                        <span class="absolute top-4 left-4 bg-purple-500 text-white text-xs px-3 py-1 rounded-full">Tools</span>
+                        <img src="../images/post4.jpg" alt="VS Code Extensions" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                            <span>May 5, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>6 min read</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Essential VS Code Extensions for Web Developers</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Boost your productivity with these must-have VS Code extensions for web development in 2025.</p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center">
+                            Read More
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-colors">
+                    <div class="relative">
+                        <span class="absolute top-4 left-4 bg-yellow-500 text-white text-xs px-3 py-1 rounded-full">CSS</span>
+                        <img src="../images/post5.jpg" alt="CSS Animations" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                            <span>April 28, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>9 min read</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Creating Smooth CSS Animations</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Learn how to create performant and engaging animations using pure CSS with these practical examples.</p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center">
+                            Read More
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-colors">
+                    <div class="relative">
+                        <span class="absolute top-4 left-4 bg-red-500 text-white text-xs px-3 py-1 rounded-full">JavaScript</span>
+                        <img src="../images/post6.jpg" alt="JavaScript Performance" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                            <span>April 20, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>11 min read</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">JavaScript Performance Optimization Techniques</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Discover advanced techniques to optimize your JavaScript code for better performance and user experience.</p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center">
+                            Read More
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center">
+                <nav class="flex items-center space-x-1">
+                    <a href="#" class="px-3 py-1 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#" class="px-3 py-1 rounded-md bg-primary text-white">1</a>
+                    <a href="#" class="px-3 py-1 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">2</a>
+                    <a href="#" class="px-3 py-1 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">3</a>
+                    <span class="px-3 py-1 text-gray-500">...</span>
+                    <a href="#" class="px-3 py-1 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">8</a>
+                    <a href="#" class="px-3 py-1 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-purple-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Subscribe to our Newsletter</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-8">Get the latest tutorials, tips, and guides delivered straight to your inbox.</p>
+                <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                    <button type="submit" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-secondary transition-colors font-medium">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Vibely<span class="text-accent">Code</span></h3>
+                    <p class="text-gray-400 mb-4">Learn to code with our easy-to-follow tutorials and guides. Master web development with HTML, CSS, JavaScript, and more.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">HTML & CSS</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">JavaScript</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Frameworks</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tools</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-primary mt-1 mr-2"></i>
+                            <span class="text-gray-400">contact@vibelycode.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-primary mt-1 mr-2"></i>
+                            <span class="text-gray-400">+1 (123) 456-7890</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-2"></i>
+                            <span class="text-gray-400">123 Code Street, Dev City, 10001</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 VibelyCode. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center shadow-lg hover:bg-secondary transition-all duration-300 transform hover:-translate-y-1 opacity-0 invisible scale-90 group" aria-label="Back to top">
+        <i class="fas fa-arrow-up transform group-hover:-translate-y-0.5 transition-transform"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const searchToggle = document.getElementById('search-toggle');
+            const searchBar = document.getElementById('search-bar');
+            const backToTop = document.getElementById('backToTop');
+            const themeToggle = document.getElementById('theme-toggle');
+
+            // Toggle mobile menu
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    if (searchBar) searchBar.classList.add('hidden');
+                });
+            }
+
+            // Toggle search bar
+            if (searchToggle && searchBar) {
+                searchToggle.addEventListener('click', () => {
+                    searchBar.classList.toggle('hidden');
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                });
+            }
+
+            // Back to top button
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTop.classList.remove('opacity-0', 'invisible', 'scale-90');
+                        backToTop.classList.add('opacity-100', 'visible', 'scale-100');
+                    } else {
+                        backToTop.classList.remove('opacity-100', 'visible', 'scale-100');
+                        backToTop.classList.add('opacity-0', 'invisible', 'scale-90');
+                    }
+                });
+
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Theme toggle
+            if (themeToggle) {
+                // Set initial theme
+                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+
+                // Toggle theme on click
+                themeToggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                    
+                    // Toggle the moon/sun icons
+                    const moonIcon = themeToggle.querySelector('.fa-moon');
+                    const sunIcon = themeToggle.querySelector('.fa-sun');
+                    
+                    if (moonIcon && sunIcon) {
+                        moonIcon.classList.toggle('hidden');
+                        sunIcon.classList.toggle('hidden');
+                    }
+                });
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
